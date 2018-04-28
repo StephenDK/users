@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/StephenDK/users/issues"
   },
-  "homepage": "https://github.com/StephenDK/users#readme"
+  "homepage": "https://github.com/StephenDK/users#readme",
+  "dependencies": {
+    "mocha": "^5.1.1",
+    "mongoose": "^5.0.16",
+    "nodemon": "^1.17.3"
+  }
 }
