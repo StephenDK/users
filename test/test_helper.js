@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost/users_test');
 mongoose.connection
 // event handelers
 // once means watch for mongoose to omit an event called open
-.once('open', () => console.log('good to go!'))
+.once('open', () => console.log('db connection good to go!'))
 // watch for mongoose to omit error
 .on('error', (error) => {
     console.warn('Warning', error);
