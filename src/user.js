@@ -1,4 +1,3 @@
-import { model } from 'mongoose';
 
 // Dependencies
 const mongoose = require('mongoose');
