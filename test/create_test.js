@@ -8,14 +8,21 @@ const User = require('../src/user');
 describe('Creating records', () => {
 
     // it function takes the same arguments as describe
-    it('saves user', () => {
+    it('saves user', (done) => {
         // to make a assertion require assert library
 
         // new instance 
         const joe = new User({ name: 'Joe' });
 
         // save user to database 
-        joe.save();
+        joe.save()
+        .then(() => {
+            // Has joe be save successfully
+            // is new returns true if joe is not in db 
+            // and returns false if joe is in db
+            assert(!joe.isNew);
+            done();
+        })
     });
 });
 
