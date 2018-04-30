@@ -11,7 +11,7 @@ describe('Deleting a user', () => {
     });
 
     it('model instance remove', (done) => {
-        // this model remove uses the joe instance set above
+        // this removes uses the joe instance set above
         joe.remove()
         .then(() => User.findOne({ name: 'Joe' }))
         .then((user) => {
@@ -21,16 +21,33 @@ describe('Deleting a user', () => {
         
     })
 
-    it('class method remove', () => {
-        // While class removes use the User model
+    it('class method remove', (done) => {
+        // class remove removes a bunch of records with some give criteria
+        User.remove({ name: 'Joe' })
+        .then(() => User.findOne({ name: 'Joe' }))
+        .then((user) => {
+            assert(user === null);
+            done();
+        });
+        
     })
 
-    it('class method findAndRemove', () => {
-
+    it('class method findAndRemove', (done) => {
+        User.findOneAndRemove({ name: 'Joe' })
+        .then(() => User.findOne({ name: 'Joe' }))
+        .then((user) => {
+            assert(user === null);
+            done();
+        });
     })
 
-    it('class method findByIdAndRemove', () => {
-
+    it('class method findByIdAndRemove', (done) => {
+        User.findByIdAndRemove( joe._id )
+        .then(() => User.findOne({ name: 'Joe' }))
+        .then((user) => {
+            assert(user === null);
+            done();
+        });
     })
 
 });
