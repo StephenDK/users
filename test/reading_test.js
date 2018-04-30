@@ -13,7 +13,11 @@ describe('Reading users out of the database', () => {
     it('finds all users with the name of joe', (done) => {
         User.find({ name: 'Joe' })
         .then((users) => {
-            console.log(users);
+            // console.log(users[0]._id);
+            // console.log(joe._id);
+            // to compare id's you must call toString() function because of ObjectId in mongo does not
+            // return Raw string text.
+            assert(users[0]._id.toString() === joe._id.toString());
             done();
         })
     })
