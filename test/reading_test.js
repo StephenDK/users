@@ -19,6 +19,7 @@ describe('Reading users out of the database', () => {
             // return Raw string text.
             assert(users[0]._id.toString() === joe._id.toString());
             done();
+
         })
     })
 })
