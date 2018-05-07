@@ -1,6 +1,8 @@
 
 // Dependencies
 const mongoose = require('mongoose');
+// import post schema
+const PostSchema = require('./post');
 // Setup a new schema
 const Schema = mongoose.Schema;
 
@@ -15,7 +17,8 @@ const UserSchema = new Schema({
         },
         required: [true, 'Name is required.']
     },
-    postCount: Number
+    postCount: Number,
+    posts: [PostSchema]
 });
 
 // create user model
